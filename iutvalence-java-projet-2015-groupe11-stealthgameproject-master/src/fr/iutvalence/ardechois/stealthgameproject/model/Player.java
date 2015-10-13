@@ -71,6 +71,6 @@ public class Player implements PlayerGetter
 		
 		Blocks nextBlock = map.getBlock(new Position(this.position.getX() + direction.getX(), this.position.getY()+direction.getY()));
 		if(nextBlock != Blocks.WALL && nextBlock != Blocks.WATER)
-			this.position.move(direction);
+			this.position.add(direction);
 	}
 }

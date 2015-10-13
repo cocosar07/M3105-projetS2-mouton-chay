@@ -86,7 +86,7 @@ public class Enemy
 		}
 		
 		if(map.getBlock(new Position(this.position.getX() + direction.getX(), this.position.getY()+direction.getY())) != Blocks.WALL && map.getBlock(new Position(this.position.getX() + direction.getX(), this.position.getY()+direction.getY())) != Blocks.WATER)
-			this.position.move(direction);
+			this.position.add(direction);
 		
 		this.visionField.updateDirection(direction);
 	}
