@@ -120,6 +120,11 @@ public class Editor implements MouseListener
 			break;
 		}
 
+		updateEditorWindow();
+	}
+
+	private void updateEditorWindow()
+	{
 		editorWindow.invalidate();
 		editorWindow.repaint();
 		editorWindow.validate();

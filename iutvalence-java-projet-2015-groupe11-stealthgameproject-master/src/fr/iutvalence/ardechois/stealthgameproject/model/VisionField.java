@@ -1,57 +1,16 @@
 package fr.iutvalence.ardechois.stealthgameproject.model;
 
-/**
- * Enemies vision field.
- * 
- * @author kelemenn
- *
- */
 public class VisionField
 {
-	// Constants
-	/**
-	 * The default vision field width.
-	 */
 	public final static int DEFAULT_WIDTH = 5;
-
-	/**
-	 * The default vision field height;
-	 */
 	public final static int DEFAULT_HEIGHT = 2;
 
-	// Attributes
-	/**
-	 * The vision field width
-	 */
 	private int width;
-
-	/**
-	 * The vision field height
-	 */
 	private int height;
-
-	/**
-	 * The vision field position
-	 * 
-	 * @see Position
-	 */
 	private Position position;
 
-	/**
-	 * The current direction of the vision field.
-	 * 
-	 * @see Direction
-	 */
 	private Direction curDirection;
 
-	/**
-	 * Constructor with a position parameter.
-	 * 
-	 * @param position
-	 *            The vision field position.
-	 * @param initDir
-	 *            The initial vision field direction.
-	 */
 	public VisionField(Position position, Direction initDir)
 	{
 		this.width = DEFAULT_WIDTH;
@@ -62,18 +21,6 @@ public class VisionField
 		this.curDirection = initDir;
 	}
 
-	/**
-	 * Constructor with width, height and position parameters.
-	 * 
-	 * @param width
-	 *            The vision field width.
-	 * @param height
-	 *            The vision field height.
-	 * @param position
-	 *            The vision field position.
-	 * @param initDir
-	 *            The initial vision field direction.
-	 */
 	public VisionField(int width, int height, Position position,
 			Direction initDir)
 	{
@@ -83,69 +30,50 @@ public class VisionField
 		this.curDirection = initDir;
 	}
 
-	/**
-	 * Allow to rotate the vision field.
-	 * 
-	 * @param direction
-	 */
 	private void rotate(Direction direction)
 	{
 		switch (direction)
 		{
 		case UP:
-				if (this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT)
-				{
-					int widthTemp = this.width;
-					this.width = this.height;
-					this.height = widthTemp;
-				}
-				this.curDirection = Direction.UP;
+			if (this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT)
+			{
+				shiftWidthAndHeight();
+			}
 			break;
 		case DOWN:
 			if (this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT)
 			{
-				int widthTemp = this.width;
-				this.width = this.height;
-				this.height = widthTemp;
+				shiftWidthAndHeight();
 			}
-			this.curDirection = Direction.DOWN;
 			break;
 		case LEFT:
 			if (this.curDirection == Direction.UP || this.curDirection == Direction.DOWN)
 			{
-				int widthTemp = this.width;
-				this.width = this.height;
-				this.height = widthTemp;
+				shiftWidthAndHeight();
 			}
-			this.curDirection = Direction.LEFT;
 			break;
 		case RIGHT:
 			if (this.curDirection == Direction.UP || this.curDirection == Direction.DOWN)
 			{
-				int widthTemp = this.width;
-				this.width = this.height;
-				this.height = widthTemp;
+				shiftWidthAndHeight();
 			}
-			this.curDirection = Direction.RIGHT;
 			break;
 		}
+		this.curDirection = direction;
+	}
 
+	private void shiftWidthAndHeight()
+	{
+		int widthTemp = this.width;
+		this.width = this.height;
+		this.height = widthTemp;
 	}
 	
-	/**
-	 * Update the vision field.
-	 * @param direction
-	 */
-	public void update(Direction direction)
+	public void updateDirection(Direction direction)
 	{
 		rotate(direction);
 	}
 	
-	/**
-	 * Check if the player is in the vision field.
-	 * @param player
-	 * @return
-	 */
 	public boolean check(Player player)
 	{
 		for (int x = 0; x < this.width; x++)
@@ -181,5 +109,4 @@ public class VisionField
 		}
 		return false;
 	}
-
 }
