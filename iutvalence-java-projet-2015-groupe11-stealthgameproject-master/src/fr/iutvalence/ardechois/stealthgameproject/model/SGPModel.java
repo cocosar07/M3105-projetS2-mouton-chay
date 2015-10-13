@@ -21,7 +21,7 @@ public class SGPModel
 		player = new Player(currentLevel.getCurrentMap().getSpawnPosition());
 	}
 
-	public void move(Direction direction)
+	public void updateGameAfterMovingThePlayer(Direction direction)
 	{
 		try
 		{

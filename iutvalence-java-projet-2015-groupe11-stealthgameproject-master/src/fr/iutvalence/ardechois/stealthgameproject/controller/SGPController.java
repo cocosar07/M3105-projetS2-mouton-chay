@@ -46,7 +46,7 @@ public class SGPController implements KeyListener
 
 	public void move(Direction direction)
 	{
-		model.move(direction);
+		model.updateGameAfterMovingThePlayer(direction);
 		if (model.hasWon())
 		{
 			JOptionPane.showMessageDialog(null, "You won the game!");

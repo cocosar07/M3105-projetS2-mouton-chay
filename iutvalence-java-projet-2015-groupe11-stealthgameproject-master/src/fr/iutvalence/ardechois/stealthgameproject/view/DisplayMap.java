@@ -11,85 +11,31 @@ import javax.swing.JPanel;
 import fr.iutvalence.ardechois.stealthgameproject.exceptions.InvalidPositionException;
 import fr.iutvalence.ardechois.stealthgameproject.model.Position;
 
-/**
- * Allow to display the map.
- * @author kelemenn
- *
- */
 public class DisplayMap extends JPanel
 {
-	/**
-	 * Serial Version UID.
-	 */
 	private static final long serialVersionUID = 1L;
 
-	/** Number of block by column. {@value #NUM_COLS} */
 	public static final int NUM_COLS = 50;
-	/** Number of block by line. {@value #NUM_ROWS} */
 	public static final int NUM_ROWS = 40;
 
-	/** Filename of the player icon. {@value #PLAYER_FILENAME} */
 	public static final String PLAYER_FILENAME = "/player.png";
-	/** Filename of the spawn icon. {@value #SPAWN_FILENAME} */
 	public static final String SPAWN_FILENAME = "/spawn.png";
-	/** Filename of the item icon. {@value #ITEM_FILENAME} */
 	public static final String ITEM_FILENAME = "/item.png";
-	/** Filename of the enemy icon. {@value #ENEMY_FILENAME} */
 	public static final String ENEMY_FILENAME = "/enemy.png";
 
-	/**
-	 * The map width.
-	 */
 	private int mapWidth;
-	/**
-	 * The map height.
-	 */
 	private int mapHeight;
-	/**
-	 * The prefered block size.
-	 */
 	private int preferredBlockSize;
-	/**
-	 * The map getter.
-	 */
 	private MapGetter mapGetter;
-	/**
-	 * The player getter.
-	 */
 	private PlayerGetter playerGetter;
-	/**
-	 * The level getter.
-	 */
 	private LevelGetter levelGetter;
 
-	/**
-	 * The icon grid.
-	 */
 	private Icon[][] groundGrid;
-	/**
-	 * The player icon.
-	 */
 	private Icon playerIcon;
-	/**
-	 * The spawn icon.
-	 */
 	private Icon spawnIcon;
-	/**
-	 * The item icon.
-	 */
 	private Icon itemIcon;
-	/**
-	 * The enemy icon.
-	 */
 	private Icon enemyIcon;
 
-	/**
-	 * Constructor who allow the display of mapGetter, playerGetter depending on preferredBlockSize.
-	 * @param levelGetter 
-	 * @param mapGetter
-	 * @param playerGetter
-	 * @param preferredBlockSize
-	 */
 	public DisplayMap(LevelGetter levelGetter, MapGetter mapGetter, PlayerGetter playerGetter, int preferredBlockSize)
 	{
 		this.mapGetter = mapGetter;
@@ -159,9 +105,6 @@ public class DisplayMap extends JPanel
 		}
 	}
 
-	/**
-	 * Update each cell of the grid.
-	 */
 	private void updateGroundGrid()
 	{
 		this.groundGrid = new Icon[mapWidth][mapHeight];
