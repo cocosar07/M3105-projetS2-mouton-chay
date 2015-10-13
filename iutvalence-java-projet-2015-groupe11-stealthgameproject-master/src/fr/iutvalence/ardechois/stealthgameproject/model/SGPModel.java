@@ -50,7 +50,7 @@ public class SGPModel
 		{
 			player.move(direction, currentLevel.getCurrentMap());
 			
-			currentLevel.moveEnemies();
+			currentLevel.moveEnemiesRandomly();
 			
 			currentLevel.updateItem(player);
 

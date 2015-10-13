@@ -119,6 +119,6 @@ public class Level implements LevelGetter
 	public void resetLevel()
 	{
 		enemyList.clear();
-		currentMap.reset();
+		currentMap.resetAllMapBlocksAsGrass();
 	}
 }
