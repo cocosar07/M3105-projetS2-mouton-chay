@@ -110,7 +110,7 @@ public class Enemy
 	 */
 	public boolean checkVisionField(Player player)
 	{
-		this.see =  this.visionField.check(player);
+		this.see =  this.visionField.checkIfPlayerIsInsideVisionField(player);
 		return getSee();
 	}
 	

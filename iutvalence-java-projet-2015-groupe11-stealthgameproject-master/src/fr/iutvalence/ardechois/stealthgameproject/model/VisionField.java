@@ -84,7 +84,7 @@ public class VisionField
 		rotate(direction);
 	}
 	
-	public boolean check(Player player)
+	public boolean checkIfPlayerIsInsideVisionField(Player player)
 	{
 		for (int x = 0; x < this.width; x++)
 		{
