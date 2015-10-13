@@ -10,37 +10,16 @@ import fr.iutvalence.ardechois.stealthgameproject.model.Direction;
 import fr.iutvalence.ardechois.stealthgameproject.model.SGPModel;
 import fr.iutvalence.ardechois.stealthgameproject.view.SGPView;
 
-/**
- * Game controller.
- * 
- * @author antoine
- *
- */
 public class SGPController implements KeyListener
 {
-	/**
-	 * Model.
-	 */
 	private SGPModel model;
 
-	/**
-	 * View.
-	 */
 	private SGPView view;
 
-	/**
-	 * Map to convert string into direction.
-	 */
 	public HashMap<String, Direction> directionHashMap;
 
-	/**
-	 * Current map filename.
-	 */
 	private String filename;
 
-	/**
-	 * Default constructor.
-	 */
 	public SGPController()
 	{
 		setHashMap();
@@ -48,11 +27,6 @@ public class SGPController implements KeyListener
 		this.view = new SGPView(model.getLevel(), model.getLevel().getCurrentMap(), model.getPlayer(), this);
 	}
 
-	/**
-	 * Constructor with a given filename.
-	 * 
-	 * @param filename
-	 */
 	public SGPController(String filename)
 	{
 		this.filename = filename;
@@ -61,9 +35,6 @@ public class SGPController implements KeyListener
 		this.view = new SGPView(model.getLevel(), model.getLevel().getCurrentMap(), model.getPlayer(), this);
 	}
 
-	/**
-	 * Set the hash map.
-	 */
 	private void setHashMap()
 	{
 		this.directionHashMap = new HashMap<String, Direction>();
@@ -73,11 +44,6 @@ public class SGPController implements KeyListener
 		this.directionHashMap.put("RIGHT", Direction.RIGHT);
 	}
 
-	/**
-	 * Move the player and all the game.
-	 * 
-	 * @param direction
-	 */
 	public void move(Direction direction)
 	{
 		model.move(direction);

@@ -10,37 +10,16 @@ import fr.iutvalence.ardechois.stealthgameproject.model.Level;
 import fr.iutvalence.ardechois.stealthgameproject.model.Position;
 import fr.iutvalence.ardechois.stealthgameproject.view.EditorWindow;
 
-/**
- * Allow to edit a map.
- * 
- * @author antoine
- * @version 0.1.0
- */
 public class Editor implements MouseListener
 {
-	/** Default filename of map : {@value #DEFAULT_MAP_NAME}. */
 	public static final String DEFAULT_MAP_NAME = "tempMap.txt";
 
-	/**
-	 * Level to edit.
-	 * 
-	 * @see Level
-	 */
 	private Level level;
 
-	/**
-	 * The Editor window.
-	 * 
-	 * @see EditorWindow
-	 */
 	private EditorWindow editorWindow;
 
-	/** File for the current edited map.*/
 	private File file;
 
-	/**
-	 * Default constructor.
-	 */
 	public Editor()
 	{
 		this.file = new File(DEFAULT_MAP_NAME);
@@ -48,19 +27,11 @@ public class Editor implements MouseListener
 		this.editorWindow = new EditorWindow(level, level.getCurrentMap(), null, this);
 	}
 
-	/**
-	 * Constructor with given filename.
-	 * @param filename
-	 */
 	public Editor(String filename)
 	{
 		this(new File(filename));
 	}
 
-	/**
-	 * Constructor with given file.
-	 * @param file
-	 */
 	public Editor(File file)
 	{
 		this.file = file;
@@ -68,11 +39,6 @@ public class Editor implements MouseListener
 		this.editorWindow = new EditorWindow(level, level.getCurrentMap(), null, this);
 	}
 
-	/**
-	 * Set he given block on the given position.
-	 * @param position
-	 * @param block
-	 */
 	public void setBlock(Position position, Blocks block)
 	{
 		try
@@ -84,22 +50,11 @@ public class Editor implements MouseListener
 		}
 	}
 
-	/**
-	 * Save the edited map in a target file.
-	 * 
-	 * @param filename
-	 */
 	public void saveMap(String filename)
 	{
 		saveMap(new File(filename));
 	}
 
-	/**
-	 * Save the edited map in a target file.
-	 * 
-	 * @param file
-	 *            The target file in which the map will be saved.
-	 */
 	public void saveMap(File file)
 	{
 		level.getCurrentMap().saveMapInFile(file, this.level.getCurrentItem().getPosition(), this.level.getEnemiesPositions());
