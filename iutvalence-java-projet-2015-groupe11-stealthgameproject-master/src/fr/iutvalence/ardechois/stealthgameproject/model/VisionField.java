@@ -35,31 +35,41 @@ public class VisionField
 		switch (direction)
 		{
 		case UP:
-			if (this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT)
+			if (isHorizontallyOriented())
 			{
 				shiftWidthAndHeight();
 			}
 			break;
 		case DOWN:
-			if (this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT)
+			if (isHorizontallyOriented())
 			{
 				shiftWidthAndHeight();
 			}
 			break;
 		case LEFT:
-			if (this.curDirection == Direction.UP || this.curDirection == Direction.DOWN)
+			if (isVerticallyOriented())
 			{
 				shiftWidthAndHeight();
 			}
 			break;
 		case RIGHT:
-			if (this.curDirection == Direction.UP || this.curDirection == Direction.DOWN)
+			if (isVerticallyOriented())
 			{
 				shiftWidthAndHeight();
 			}
 			break;
 		}
 		this.curDirection = direction;
+	}
+
+	private boolean isHorizontallyOriented()
+	{
+		return this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT;
+	}
+
+	private boolean isVerticallyOriented()
+	{
+		return this.curDirection == Direction.UP || this.curDirection == Direction.DOWN;
 	}
 
 	private void shiftWidthAndHeight()
